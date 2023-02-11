@@ -725,15 +725,15 @@ class MainActivity : AppCompatActivity(), ColorPickerDialogListener {
             main {
                 if (checkGithubConnectivity()) {
                     settingsManager.edit()
-                        .putBool(getString(R.string.jsdelivr_proxy_key), false).apply()
+                        .putBoolean(getString(R.string.jsdelivr_proxy_key), false).apply()
                 } else {
                     settingsManager.edit()
-                        .putBool(getString(R.string.jsdelivr_proxy_key), true).apply()
+                        .putBoolean(getString(R.string.jsdelivr_proxy_key), true).apply()
                     val parentView: View = findViewById(android.R.id.content)
                     Snackbar.make(parentView, R.string.jsdelivr_enabled, Snackbar.LENGTH_LONG).let { snackbar ->
                         snackbar.setAction(R.string.revert) { v ->
                             settingsManager.edit()
-                                .putBool(getString(R.string.jsdelivr_proxy_key), false).apply()
+                                .putBoolean(getString(R.string.jsdelivr_proxy_key), false).apply()
                         }
                         snackbar.setBackgroundTint(colorFromAttribute(R.attr.primaryGrayBackground))
                         snackbar.setTextColor(colorFromAttribute(R.attr.textColor))

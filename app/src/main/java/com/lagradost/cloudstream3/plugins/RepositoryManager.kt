@@ -78,6 +78,7 @@ object RepositoryManager {
 
     /* Convert raw.githubusercontent.com urls to cdn.jsdelivr.net if enabled in settings */
     fun convertRawGitUrl(url: String): String {
+        if (context == null) return url
         val settingsManager = PreferenceManager.getDefaultSharedPreferences(context)
         if (settingsManager.getBoolean(context.getString(R.string.jsdelivr_proxy_key), false)) return url
         
